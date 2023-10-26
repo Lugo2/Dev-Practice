@@ -93,5 +93,20 @@ print_if_greater_than_or_equal_to_3("Lol")
         # 2}    find out how to capture the first and last character of a word into two seprate
         #       variables using, loops, conditionals, lists (no built-in List methods), and functions
         # 3}    print the two variables concatenated
-def first_and_last(string):
-    
+def first_letter_extractor(string):
+    for first_letter in string:
+        return first_letter
+        
+def last_letter_extractor(string):
+    backwards_string = string[::-1]
+    for last_letter in backwards_string:
+        return last_letter
+
+def first_and_last_letters(string):
+    return_first_letter = first_letter_extractor(string)
+    return_last_letter = last_letter_extractor(string)
+    front_and_last = return_first_letter + return_last_letter
+    return front_and_last
+
+string = input("Im going to give you back the first and last letters of what ever word you give me.\nWhat word would you like those two letters to come from? ")
+print(first_and_last_letters(string))
