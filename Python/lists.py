@@ -19,9 +19,9 @@ print(f"\n{second_element(tech_stacks)}\n")
         # 2}    define a function that takes in a list as an argumant and adds 2 elements to the list
         # 3}    check for duplicates in the list
         # 4}    append the number of duplicte to the back of the duplicate element
-def add_name_to_list(new_elents, current_list):
+def add_name_to_list(new_elements, current_list):
     
-    for name in new_elents:
+    for name in new_elements:
 
         if name in current_list:
             duplicate_count = 2
@@ -93,7 +93,6 @@ friends = ["Jalvich", "Jen", "Lupe", "Ludwig", "Oscar", "Okonkwo"]
 friend_to_add_string = input(f"\nName a friend your like to add to the list: ")
 
 def add_to_friends_list(list, friend):
-    # dup_found = False
     duplicate = True
     while duplicate == True:
         if friend in list:
@@ -103,43 +102,55 @@ def add_to_friends_list(list, friend):
         else:
             list.append(friend)
             duplicate = False
-        # for name in list:
-        #     if name == friend:
-        #         nickname = input(f"\nSorry, that name is taken, please enter a nickname: ")
-        #         if nickname != name:
-        #             list.append(nickname)
-        #             duplicate = False
-        #             dup_found = True
-        #             break
-        #         else:
-        #             nickname = input(f"\nSorry, that name is taken, please enter a nickname: ")
-        # if dup_found == False:
-        #     list.append(friend)
-        #     duplicate = False
     return list
 
 print(f"\n{add_to_friends_list(friends, friend_to_add_string)}\n")
 
 
 
-# Task 6, 
-    # Steps to overcome the challange:
-        # 1}    
-        # 2}    
-        # 3}    
+# Task 6, show all 3 ways to copy a list, not make a referance to it
+favorite_vehicles = ["79' BMW 2002 Turbo", "83' Lancia 037 Stradale", "72' c10"]
+    # Steps for using .append():
+        # 1}    use a for loop to get each element from the list
+        # 2}    use .append(element) to add to the new list
+        # 3}    once the loop is over, return the new list with the same elements as the first list
+appended_list = []
+for element in favorite_vehicles:
+    appended_list.append(element)
 
 
-
-# Task 7, 
-    # Steps to overcome the challange:
-        # 1}    
-        # 2}    
-        # 3}    
+    #  Steps for using copy():
+        # 1}    use .copy(list) to copy every element from the first list on to a new list 
+        # 2}    return the new list
+copied_list = favorite_vehicles.copy()
 
 
+    #  Steps for using list():
+        # 1}    use list(list) to create a new variable with list elements from the first list
+        # 2}    return the new list
+listed_list = list(favorite_vehicles)
 
-# Task 8, 
-    # Steps to overcome the challange:
-        # 1}    
-        # 2}    
-        # 3}   
+
+print(appended_list)
+print(copied_list)
+print(listed_list)
+
+
+# Task 7, sort the items in a list alphabetically ascending, descending, and alphanumerically ordered from most letters to least
+
+favorite_dishes = ["Enchiladas", "Hotdogs", "Tortas", "Ceviche", "Aguachile"]
+
+    # Sort ascending:
+favorite_dishes.sort()
+print(favorite_dishes)
+
+    # Sort descending:
+favorite_dishes.sort(reverse = True)
+print(favorite_dishes)
+
+    # Sort alphanumerically from most to least:
+def alphanumeric(list):
+    return len(list)
+
+favorite_dishes.sort(reverse = True, key = alphanumeric)
+print(favorite_dishes)
