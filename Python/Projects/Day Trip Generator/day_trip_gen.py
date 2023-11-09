@@ -17,9 +17,12 @@ def trip_generator():
     grub = rand_element(eats_list)
     vehicle = rand_element(transportation_list)
     entertainment = rand_element(entertainment_list)
-    return f"Destination: {location}\nFood: {grub}\nMode of Transportation: {vehicle}\nForm of Entertainment: {entertainment}\n"
+    day_trip_list = [location, grub, vehicle, entertainment]
+    return day_trip_list
 
-user_input = input(f"\nHere's your completely randomized trip itinerary.\n\n{trip_generator()}\n\nAre you satisfied with your current trip?\nType yes or no\n\n")
+trip_list = trip_generator()
+
+user_input = input(f"\nHere's your completely randomized trip itinerary.\n\nDestination: {trip_list[0]}\nFood: {trip_list[1]}\nMode of Transportation: {trip_list[2]}\nForm of Entertainment: {trip_list[3]}\n\nAre you satisfied with your current trip?\nType yes or no\n\n")
 
 user_satisfied = False
 while user_satisfied != True:
@@ -29,4 +32,11 @@ while user_satisfied != True:
     elif user_input != "yes":
         user_change = input("\nSorry to hear that, what part would you like to change?\nLocation? Food? Vehicle? Entertainment? ")
         if user_change == "Location":
-            
+            trip_list[0] = rand_element(city_list)
+        elif user_change == "Food":
+            trip_list[1] = rand_element(eats_list)
+        elif user_change == "Vehicle":
+            trip_list[2] = rand_element(transportation_list)
+        elif user_change == "Entertainment":
+            trip_list[3] = rand_element(entertainment_list)
+        user_input = input(f"\nWith the new adjustment, here's your completely trip itinerary.\n\nDestination: {trip_list[0]}\nFood: {trip_list[1]}\nMode of Transportation: {trip_list[2]}\nForm of Entertainment: {trip_list[3]}\n\nAre you satisfied with your current trip?\nType yes or no\n\n")
